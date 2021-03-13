@@ -1,0 +1,8 @@
+*.o
+*.a
+*.js
+*.wasm
+*.html
+*.data
+sdlfracland
+
