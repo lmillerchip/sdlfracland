@@ -9,7 +9,7 @@ export AR
 export CPP
 export CPPFLAGS
 
-web: sdlfracland.html
+web: index.html
 	echo Done
 
 linux: sdlfracland
@@ -19,10 +19,10 @@ OBJECTS=\
 	LandscapeSDL.o\
 	main.o
 
-sdlfracland.html: CPP=em++
-sdlfracland.html: AR=emar
-sdlfracland.html: CPPFLAGS+=$(EMFLAGS)
-sdlfracland.html: libFracLand/libFracLand.a $(OBJECTS)
+index.html: CPP=em++
+index.html: AR=emar
+index.html: CPPFLAGS+=$(EMFLAGS)
+index.html: libFracLand/libFracLand.a $(OBJECTS)
 	$(CPP) $(CPPFLAGS) $(OBJECTS) -o $@ $(LINKLIBS) $(EMFILES)
 
 sdlfracland: libFracLand/libFracLand.a $(OBJECTS)
@@ -32,7 +32,7 @@ libFracLand/libFracLand.a: libFracLand/*.h libFracLand/*.cpp libFracLand/Makefil
 	$(MAKE) -C libFracLand
 
 clean:
-	rm -f *.o *~ sdlfracland sdlfracland.html sdlfracland.wasm sdlfracland.data sdlfracland.js
+	rm -f *.o *~ sdlfracland index.html index.wasm index.data index.js
 	$(MAKE) -C libFracLand clean
 
 .SUFFIXES: .cpp .o
